@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/productoIdTextView"
+        android:layout_width="31dp"
+        android:layout_height="20dp"
+        android:layout_weight="1"
+        android:text="11"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/existenciaTextView"
+        app:layout_constraintEnd_toStartOf="@+id/descripcionTextView"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/descripcionTextView"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_weight="2"
+        android:text="Descripcion producto"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/existenciaTextView"
+        app:layout_constraintEnd_toStartOf="@+id/existenciaTextView"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/productoIdTextView" />
+
+    <TextView
+        android:id="@+id/existenciaTextView"
+        android:layout_width="74dp"
+        android:layout_height="20dp"
+        android:layout_weight="1"
+        android:text="10"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/costoTextView"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/descripcionTextView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/costoTextView"
+        android:layout_width="69dp"
+        android:layout_height="20dp"
+        android:layout_weight="1"
+        android:text="10000"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/existenciaTextView"
+        app:layout_constraintEnd_toStartOf="@+id/valorInventarioTextView"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/existenciaTextView" />
+
+    <TextView
+        android:id="@+id/valorInventarioTextView"
+        android:layout_width="103dp"
+        android:layout_height="20dp"
+        android:layout_weight="1"
+        android:text="20000"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/existenciaTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/costoTextView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
