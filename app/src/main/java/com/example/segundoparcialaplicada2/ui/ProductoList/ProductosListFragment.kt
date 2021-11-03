@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import com.example.segundoparcialaplicada2.R
 import com.example.segundoparcialaplicada2.adapters.ProductoAdapter
@@ -37,14 +38,11 @@ class ProductosListFragment : Fragment() {
             ViewModelProvider(this, ProductosListViewModel.Factory(requireActivity().application))
                 .get(ProductosListViewModel::class.java)
 
-        lifecycleScope.launchWhenCreated {
-            val lista = RetrofitInstance.api.getProducto()
-
-            var cant = lista.size
+        viewModel.lista.observe(viewLifecycleOwner, Observer {
             val adapter = ProductoAdapter()
-            adapter.submitList(lista)
+            adapter.submitList(it)
             binding.productosRecycleView.adapter = adapter
-        }
+        })
 
         return binding.root
     }
