@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import com.example.segundoparcialaplicada2.R
@@ -15,6 +16,7 @@ import com.example.segundoparcialaplicada2.api.Producto
 import com.example.segundoparcialaplicada2.api.RetrofitInstance
 import com.example.segundoparcialaplicada2.databinding.ProductoRowBinding
 import com.example.segundoparcialaplicada2.databinding.ProductosListFragmentBinding
+import com.google.android.material.snackbar.Snackbar
 
 class ProductosListFragment : Fragment() {
 
@@ -44,6 +46,13 @@ class ProductosListFragment : Fragment() {
             binding.productosRecycleView.adapter = adapter
         })
 
+        /*viewModel.mensajeError.observe(this, Observer {
+            Snackbar.make(binding.productosRecycleView, "$mensajeError", Snackbar.LENGTH_LONG).show()
+        })*/
+
+        viewModel.status.observe(viewLifecycleOwner, Observer {
+            binding.progressBar.isVisible = (it == ApiStatus.LOADING)
+        })
         return binding.root
     }
 
